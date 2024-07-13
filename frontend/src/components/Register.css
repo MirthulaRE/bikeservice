@@ -1,0 +1,60 @@
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/org.jpg'); 
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .register-form-container {
+    width: 40%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1 rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #0056b3;
+    color: #f5efef;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4d77a6;
+  }
+  
+  .btn-secondary {
+    background-color: #0056b3;
+    color: #fff;
+    margin-left: 10px;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #4d77a6;
+  }
+  
+  .already-text {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #555;
+  }
+  

@@ -1,0 +1,11 @@
+.previous-bookings-container {
+    padding: 20px;
+}
+
+.previous-bookings-container h2 {
+    margin-bottom: 20px;
+}
+
+.booking-item {
+    margin-bottom: 15px;
+}

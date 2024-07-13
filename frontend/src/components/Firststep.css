@@ -1,0 +1,76 @@
+.firststep-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, #ffecd2, #fcb69f);
+    font-family: 'Arial', sans-serif;
+}
+
+.firststep-form-container {
+    width: 60%; /* Increased width */
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.firststep-heading {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.firststep-label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.firststep-input {
+    font-size: 1rem;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%; /* Reduced width */
+    margin-left: 10%; /* Centered the input */
+}
+
+.firststep-btn {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80%; /* Reduced width */
+    margin-top: 15px;
+    margin-left: 10%; /* Centered the button */
+}
+
+.firststep-btn:hover {
+    background-color: #0056b3;
+}
+
+.status-text {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}

@@ -1,0 +1,45 @@
+.EditProduct-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: #f0f0f0; /
+}
+
+.EditProduct-formContainer {
+    width: 600px; /* Adjust width as per your design */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for depth */
+}
+
+.EditProduct-formGroup {
+    margin-bottom: 20px;
+}
+
+.EditProduct-formControl {
+    width: 100%; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.EditProduct-textarea-formControl {
+    min-height: 100px;
+}
+
+.EditProduct-btnPrimary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.EditProduct-btnPrimary:hover {
+    background-color: #0056b3;
+}
