@@ -20,11 +20,7 @@ export default function Sidebar () {
                         <NavDropdown.Item  onClick={() => navigate('/CreateService')} > <i className='fa fa-plus'> Create </i></NavDropdown.Item>
                         
                     </NavDropdown>
-                </li>
-
-               
-
-              
+                </li> 
         
             </ul>
             </nav>
