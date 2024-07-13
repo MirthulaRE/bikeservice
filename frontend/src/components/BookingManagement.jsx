@@ -6,13 +6,13 @@ const BookingManagement = () => {
 
     useEffect(() => {
         // Fetch bookings from backend on component mount
-        axios.get('http://localhost:3001/bookings')
+        axios.get('https://bikeservice-1.onrender.com/bookings')
             .then(response => setBookings(response.data))
             .catch(error => console.error('Error fetching bookings:', error));
     }, []);
 
     const handleReadyForDelivery = (bookingId) => {
-        axios.put(`http://localhost:3001/bookings/${bookingId}/ready`)
+        axios.put(`https://bikeservice-1.onrender.com/bookings/${bookingId}/ready`)
             .then(response => {
                 console.log('Booking marked as ready for delivery:', response.data);
                 // Update bookings state after marking as ready for delivery
@@ -24,7 +24,7 @@ const BookingManagement = () => {
     };
 
     const handleCompleted = (bookingId) => {
-        axios.put(`http://localhost:3001/bookings/${bookingId}/completed`)
+        axios.put(`https://bikeservice-1.onrender.com/bookings/${bookingId}/completed`)
             .then(response => {
                 console.log('Booking marked as completed:', response.data);
                 // Update bookings state after marking as completed

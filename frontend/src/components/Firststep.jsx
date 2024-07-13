@@ -19,7 +19,7 @@ const FirstStep = () => {
         event.preventDefault();
 
         const bookingDetails = { fullname, emailid, mobile, model, service, bookingDate };
-        axios.post('http://localhost:3001/firststep', bookingDetails)
+        axios.post('https://bikeservice-1.onrender.com/firststep', bookingDetails)
             .then(result => {
                 if (result.data === "Already registered") {
                     alert("You are already registered");

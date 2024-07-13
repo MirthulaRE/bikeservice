@@ -4,7 +4,7 @@ import axios from 'axios';
 const DeleteService = ({ serviceId }) => {
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3001/api/v1/products/${serviceId}`);
+            const response = await axios.delete(`https://bikeservice-1.onrender.com/api/v1/products/${serviceId}`);
             console.log('Service deleted:', response.data);
            
         } catch (error) {

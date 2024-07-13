@@ -8,7 +8,7 @@ const ServiceBookings = () => {
     const [status, setStatus] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/v1/servicebookings')
+        axios.get('https://bikeservice-1.onrender.com/api/v1/servicebookings')
             .then(response => {
                 setBookings(response.data);
             })
@@ -23,7 +23,7 @@ const ServiceBookings = () => {
     };
 
     const handleSave = (id) => {
-        axios.put(`http://localhost:3001/api/v1/servicebookings/${id}`, { status })
+        axios.put(`https://bikeservice-1.onrender.com/api/v1/servicebookings/${id}`, { status })
             .then(response => {
                 setBookings(bookings.map(booking => booking._id === id ? { ...booking, status } : booking));
                 setEditingBooking(null);

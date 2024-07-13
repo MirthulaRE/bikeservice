@@ -11,7 +11,7 @@ const CreateService = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/api/v1/products', {
+            const response = await axios.post('https://bikeservice-1.onrender.com/api/v1/products', {
                 serviceId,
                 name,
                 description,

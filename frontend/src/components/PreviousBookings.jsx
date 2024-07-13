@@ -9,7 +9,7 @@ const PreviousBookings = () => {
 
     useEffect(() => {
         // Replace with the actual endpoint to fetch previous bookings
-        axios.get('http://localhost:3001/previous-bookings')
+        axios.get('https://bikeservice-1.onrender.com/previous-bookings')
             .then(response => {
                 setPreviousBookings(response.data);
                 setLoading(false);

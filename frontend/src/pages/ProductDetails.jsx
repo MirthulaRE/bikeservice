@@ -8,7 +8,7 @@ const ProductDetails = () => {
     const [alertMessage, setAlertMessage] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/v1/products')
+        axios.get('https://bikeservice-1.onrender.com/api/v1/products')
             .then(response => {
                 setProducts(response.data);
             })
@@ -20,7 +20,7 @@ const ProductDetails = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/v1/products');
+            const response = await axios.get('https://bikeservice-1.onrender.com/api/v1/products');
             setProducts(response.data);
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -34,7 +34,7 @@ const ProductDetails = () => {
 
     const handleDelete = async (productId) => {
         try {
-            await axios.delete(`http://localhost:3001/api/v1/products/${productId}`);
+            await axios.delete(`https://bikeservice-1.onrender.com/api/v1/products/${productId}`);
             setAlertMessage('Service deleted successfully');
             fetchProducts(); 
         } catch (error) {

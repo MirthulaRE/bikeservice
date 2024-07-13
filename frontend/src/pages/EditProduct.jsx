@@ -14,7 +14,7 @@ const EditProduct = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/v1/products/${productId}`);
+                const response = await axios.get(`https://bikeservice-1.onrender.com/api/v1/products/${productId}`);
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product:', error);
@@ -35,7 +35,7 @@ const EditProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3001/api/v1/products/${productId}`, product);
+            await axios.put(`https://bikeservice-1.onrender.com/api/v1/products/${productId}`, product);
             setAlertMessage('Service edited successfully!');
             
         } catch (error) {

@@ -9,7 +9,7 @@ const EditBooking = () => {
     const [status, setStatus] = useState('');
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/v1/servicebookings/${id}`)
+        axios.get(`https://bikeservice-1.onrender.com/api/v1/servicebookings/${id}`)
             .then(response => {
                 setBooking(response.data);
                 setStatus(response.data.status);
@@ -21,7 +21,7 @@ const EditBooking = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/api/v1/servicebookings/${id}`, { ...booking, status })
+        axios.put(`https://bikeservice-1.onrender.com/api/v1/servicebookings/${id}`, { ...booking, status })
             .then(response => {
                 navigate('/service-bookings');
             })

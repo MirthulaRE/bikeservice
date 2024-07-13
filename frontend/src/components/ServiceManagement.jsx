@@ -8,13 +8,13 @@ const ServiceManagement = () => {
 
     useEffect(() => {
        
-        axios.get('http://localhost:3001/service registrations')
+        axios.get('https://bikeservice-1.onrender.com/service registrations')
             .then(response => setServices(response.data))
             .catch(error => console.error('Error fetching services:', error));
     }, []);
 
     const handleDelete = (serviceId) => {
-        axios.delete(`http://localhost:3001/service registrations/${serviceId}`)
+        axios.delete(`https://bikeservice-1.onrender.com/service registrations/${serviceId}`)
             .then(response => {
                 console.log('Service deleted:', response.data);
                 

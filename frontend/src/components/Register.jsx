@@ -13,7 +13,7 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:3001/register', { name, email, password, isAdmin })
+        axios.post('https://bikeservice-1.onrender.com/register', { name, email, password, isAdmin })
             .then(result => {
                 console.log(result);
                 if (result.data === "Already registered") {

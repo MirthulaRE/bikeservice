@@ -10,7 +10,7 @@ const BookingStatus = () => {
     useEffect(() => {
         if (bookingData) {
             // Fetch booking status based on emailid
-            axios.get(`http://localhost:3001/booking-status?emailid=${bookingData.emailid}`)
+            axios.get(`https://bikeservice-1.onrender.com/booking-status?emailid=${bookingData.emailid}`)
                 .then(response => {
                     setBookingStatus(response.data);
                 })

@@ -6,7 +6,7 @@ const UserDetails = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/v1/users')
+        axios.get('https://bikeservice-1.onrender.com/api/v1/users')
             .then(response => {
                 setUsers(response.data);
             })
