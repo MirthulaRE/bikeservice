@@ -82,4 +82,32 @@ Once the customer books a service, the owner receives an email notification with
 <h5>Book a service at a particular date</h5>
 <h5>See the status of his booking- See all his previous bookings</h5>
 <h5>Receive an email as soon as his booking is ready for delivery</h5>
+
+## Database Schema :
+Table: users
+Field		Data Type	Constraints
+user_id		INT		PRIMARY KEY
+name		VARCHAR		NOT NULL
+email		VARCHAR		NOT NULL, UNIQUE
+password	VARCHAR		NOT NULL
+role        VARCHAR     NOT NULL
+
+Table: products
+Field		    Data Type	    Constraints
+serviceId	    INT		        NOT NULL, UNIQUE
+name		    VARCHAR		    NOT NULL
+description    	TEXT	        NOT NULL
+cost		    VARCHAR		    NOT NULL
+
+Table:servicebookings
+Field		    Data Type	Constraints
+fullname	    VARCHAR(100)	NOT NULL
+emailid		    VARCHAR(100)	NOT NULL
+mobile		    VARCHAR(15)	    NOT NULL
+model		    VARCHAR(100)	NOT NULL
+service		    VARCHAR(100)	NOT NULL
+booking_date	DATETIME	    NOT NULL
+status		    VARCHAR(50)	    NOT NULL
+
+
  
