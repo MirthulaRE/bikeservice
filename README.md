@@ -83,31 +83,172 @@ Once the customer books a service, the owner receives an email notification with
 <h5>See the status of his booking- See all his previous bookings</h5>
 <h5>Receive an email as soon as his booking is ready for delivery</h5>
 
-## Database Schema :
-Table: users
-Field		Data Type	Constraints
-user_id		INT		PRIMARY KEY
-name		VARCHAR		NOT NULL
-email		VARCHAR		NOT NULL, UNIQUE
-password	VARCHAR		NOT NULL
-role        VARCHAR     NOT NULL
+<h1>Database Schema</h1>
 
-Table: products
-Field		    Data Type	    Constraints
-serviceId	    INT		        NOT NULL, UNIQUE
-name		    VARCHAR		    NOT NULL
-description    	TEXT	        NOT NULL
-cost		    VARCHAR		    NOT NULL
+<h2>Users Table</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Data Type</th>
+            <th>Constraints</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>name</td>
+            <td>VARCHAR</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>VARCHAR</td>
+            <td>NOT NULL, UNIQUE</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>VARCHAR</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>role</td>
+            <td>VARCHAR</td>
+            <td>NOT NULL</td>
+        </tr>
+    </tbody>
+</table>
 
-Table:servicebookings
-Field		    Data Type	Constraints
-fullname	    VARCHAR(100)	NOT NULL
-emailid		    VARCHAR(100)	NOT NULL
-mobile		    VARCHAR(15)	    NOT NULL
-model		    VARCHAR(100)	NOT NULL
-service		    VARCHAR(100)	NOT NULL
-booking_date	DATETIME	    NOT NULL
-status		    VARCHAR(50)	    NOT NULL
+<h2>Products Table</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Data Type</th>
+            <th>Constraints</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>serviceId</td>
+            <td>INT</td>
+            <td>NOT NULL, UNIQUE</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>VARCHAR</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>TEXT</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>cost</td>
+            <td>VARCHAR</td>
+            <td>NOT NULL</td>
+        </tr>
+    </tbody>
+</table>
 
+<h2>Service Bookings Table</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Data Type</th>
+            <th>Constraints</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>fullname</td>
+            <td>VARCHAR(100)</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>emailid</td>
+            <td>VARCHAR(100)</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>mobile</td>
+            <td>VARCHAR(15)</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>model</td>
+            <td>VARCHAR(100)</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>service</td>
+            <td>VARCHAR(100)</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>booking_date</td>
+            <td>DATETIME</td>
+            <td>NOT NULL</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>VARCHAR(50)</td>
+            <td>NOT NULL</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+<h1>Sample Data</h1>
+
+<h2>Users Collection</h2>
+<pre>
+[
+  {
+    "name": "John Doe",
+    "email": "john.doe@gmail.com",
+    "password": "password123",
+    "role": "user"
+  },
+  {
+    "name": "Arjun",
+    "email": "arjun@gmail.com",
+    "password": "password456",
+    "role":"user"
+  }
+]
+</pre>
+
+<h2>Products Collection</h2>
+<pre>
+[
+  {
+    "serviceId": 1,
+    "name": "General Service",
+    "description": "Keep your bike running smoothly with our comprehensive general service…",
+    "cost": "₹1500"
+  }
+]
+</pre>
+
+<h2>Service Bookings Collection</h2>
+<pre>
+[
+  {
+    "fullname": "John Doe",
+    "emailid": "john.doe@example.com",
+    "mobile": "987654321",
+    "model": "Yamaha",
+    "service": "Water Wash",
+    "booking_date": "2024-07-30",
+    "status": "pending"
+  }
+]
+</pre>
+
+</body>
+</html>
 
  
