@@ -32,13 +32,9 @@ const FirstStep = () => {
             })
             .catch(err => console.log(err));
     }
-<<<<<<< HEAD
+
 
     const today = new Date().toISOString().split('T')[0]; 
-
-=======
-    const today = new Date().toISOString().split('T')[0];
->>>>>>> 5514949172142b37bc603605b7913e2bf74d192a
     return (
         <div className="firststep-container">
             <div className="firststep-form-container">
@@ -123,11 +119,7 @@ const FirstStep = () => {
                             placeholder="Select Date"
                             className="form-control firststep-input"
                             id="exampleInputDate"
-<<<<<<< HEAD
-                            min={today} 
-=======
                             min={today}
->>>>>>> 5514949172142b37bc603605b7913e2bf74d192a
                             onChange={(event) => setBookingDate(event.target.value)}
                             required
                         />
