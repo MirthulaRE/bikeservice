@@ -16,19 +16,10 @@ const sendEmail = async (bookingDetails) => {
 
         // Send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '"mirthulare.21it@kongu.edu', // sender address
-            to: 'BikeBuddy Services" bikebuddy@gmail.com ', // list of receivers
-            subject: 'New Service Booking', // Subject line
-            html: `
-                <h3>New Service Booking Details:</h3>
-                <ul>
-                    <li><strong>Name:</strong> ${bookingDetails.fullname}</li>
-                    <li><strong>Email:</strong> ${bookingDetails.emailid}</li>
-                    <li><strong>Mobile:</strong> ${bookingDetails.mobile}</li>
-                    <li><strong>Model:</strong> ${bookingDetails.model}</li>
-                    <li><strong>Service:</strong> ${bookingDetails.service}</li>
-                    <li><strong>Booking Date:</strong> ${new Date(bookingDetails.bookingDate).toLocaleDateString()}</li>
-                </ul>
+            to: '"mirthulare.21it@kongu.edu', // sender address
+            from: 'BikeBuddy Services" bikebuddy@gmail.com ', // list of receivers
+            subject:  'Your Bike is Ready for Delivery',
+            text: `Hello Arjun, your bike service is complete and your bike is ready for delivery.
             `
         });
 

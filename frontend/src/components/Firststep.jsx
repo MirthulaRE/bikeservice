@@ -19,7 +19,7 @@ const FirstStep = () => {
         event.preventDefault();
 
         const bookingDetails = { fullname, emailid, mobile, model, service, bookingDate };
-        axios.post('https://bikeservice-1.onrender.com/firststep', bookingDetails)
+        axios.post('http://localhost:3001/firststep', bookingDetails)
             .then(result => {
                 if (result.data === "Already registered") {
                     alert("You are already registered");
@@ -32,6 +32,8 @@ const FirstStep = () => {
             })
             .catch(err => console.log(err));
     }
+
+    const today = new Date().toISOString().split('T')[0]; 
 
     return (
         <div className="firststep-container">
@@ -117,6 +119,7 @@ const FirstStep = () => {
                             placeholder="Select Date"
                             className="form-control firststep-input"
                             id="exampleInputDate"
+                            min={today} 
                             onChange={(event) => setBookingDate(event.target.value)}
                             required
                         />

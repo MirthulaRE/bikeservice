@@ -1,4 +1,3 @@
-// Login.jsx
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
@@ -8,23 +7,43 @@ import './Login.css';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
+    const validate = () => {
+        const errors = {};
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            errors.email = "Please enter a valid email address.";
+        }
+
+        if (password.length < 6) {
+            errors.password = "Password must be at least 6 characters long.";
+        }
+
+        setErrors(errors);
+
+        return Object.keys(errors).length === 0;
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        axios.post('https://bikeservice-1.onrender.com/login', { email, password })
-        .then(result => {
-            console.log(result);
-            if(result.data === "Success") {
-                console.log("Login Success");
-                alert('Login successful!');
-                navigate('/home');
-            } else {
-                alert('Incorrect password! Please try again.');
-            }
-        })
-        .catch(err => console.log(err));
+
+        if (validate()) {
+            axios.post('http://localhost:3001/login', { email, password })
+            .then(result => {
+                console.log(result);
+                if(result.data === "Success") {
+                    console.log("Login Success");
+                    alert('Login successful!');
+                    navigate('/home');
+                } else {
+                    alert('Incorrect password! Please try again.');
+                }
+            })
+            .catch(err => console.log(err));
+        }
     }
 
     return (
@@ -44,6 +63,7 @@ const Login = () => {
                             onChange={(event) => setEmail(event.target.value)}
                             required
                         /> 
+                        {errors.email && <div className="text-danger">{errors.email}</div>}
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputPassword1" className="form-label">
@@ -57,11 +77,11 @@ const Login = () => {
                             onChange={(event) => setPassword(event.target.value)}
                             required
                         />
+                        {errors.password && <div className="text-danger">{errors.password}</div>}
                     </div>
                     <button type="submit" className="btn btn-primary">Login</button>
                 </form>
                 <h1 className='login-info-text text-dark'>Don't have an account?</h1>
-
                 <Link to='/register' className="btn btn-secondary">Register</Link>
             </div>
         </div>

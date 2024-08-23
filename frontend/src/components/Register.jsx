@@ -8,28 +8,72 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isAdmin, setIsAdmin] = useState(false); // State for admin registration
+    const [errors, setErrors] = useState({}); // State to handle errors
     const navigate = useNavigate();
+
+    const validateName = (name) => {
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        if (!nameRegex.test(name)) {
+            return "Name can only contain alphabets.";
+        }
+        return "";
+    };
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{3}$/;
+        if (!emailRegex.test(email)) {
+            return "Please enter a valid email address that must have @ followed by .";
+        }
+        return "";
+    };
+
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+        if (!passwordRegex.test(password)) {
+            return "Password must contain at least one letter and one number, and be at least 6 characters long.";
+        }
+        return "";
+    };
+
+    const validate = () => {
+        const errors = {};
+
+        const nameError = validateName(name);
+        if (nameError) errors.name = nameError;
+
+        const emailError = validateEmail(email);
+        if (emailError) errors.email = emailError;
+
+        const passwordError = validatePassword(password);
+        if (passwordError) errors.password = passwordError;
+
+        setErrors(errors);
+
+        return Object.keys(errors).length === 0;
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('https://bikeservice-1.onrender.com/register', { name, email, password, isAdmin })
-            .then(result => {
-                console.log(result);
-                if (result.data === "Already registered") {
-                    alert("E-mail already registered! Please Login to proceed.");
-                    navigate('/login');
-                } else {
-                    alert("Registered successfully!");
-                    if (isAdmin) {
-                        navigate('/dashboard'); 
+        if (validate()) {
+            axios.post('http://localhost:3001/register', { name, email, password, isAdmin })
+                .then(result => {
+                    console.log(result);
+                    if (result.data === "Already registered") {
+                        alert("E-mail already registered! Please Login to proceed.");
+                        navigate('/login');
                     } else {
-                        navigate('/login'); 
+                        alert("Registered successfully!");
+                        if (isAdmin) {
+                            navigate('/dashboard'); 
+                        } else {
+                            navigate('/login'); 
+                        }
                     }
-                }
-            })
-            .catch(err => console.log(err));
-    }
+                })
+                .catch(err => console.log(err));
+        }
+    };
 
     return (
         <div className="register-container">
@@ -46,9 +90,14 @@ const Register = () => {
                             placeholder="Enter Name"
                             className="form-control"
                             id="exampleInputName"
-                            onChange={(event) => setName(event.target.value)}
+                            value={name}
+                            onChange={(event) => {
+                                setName(event.target.value);
+                                setErrors({ ...errors, name: validateName(event.target.value) });
+                            }}
                             required
                         />
+                        {errors.name && <div className="text-danger">{errors.name}</div>}
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail" className="form-label" style={{ color: 'black' }}>
@@ -59,9 +108,14 @@ const Register = () => {
                             placeholder="Enter Email"
                             className="form-control"
                             id="exampleInputEmail"
-                            onChange={(event) => setEmail(event.target.value)}
+                            value={email}
+                            onChange={(event) => {
+                                setEmail(event.target.value);
+                                setErrors({ ...errors, email: validateEmail(event.target.value) });
+                            }}
                             required
                         />
+                        {errors.email && <div className="text-danger">{errors.email}</div>}
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputPassword" className="form-label" style={{ color: 'black' }}>
@@ -72,9 +126,14 @@ const Register = () => {
                             placeholder="Enter Password"
                             className="form-control"
                             id="exampleInputPassword"
-                            onChange={(event) => setPassword(event.target.value)}
+                            value={password}
+                            onChange={(event) => {
+                                setPassword(event.target.value);
+                                setErrors({ ...errors, password: validatePassword(event.target.value) });
+                            }}
                             required
                         />
+                        {errors.password && <div className="text-danger">{errors.password}</div>}
                     </div>
                     <div className="mb-3 form-check">
                         <input
@@ -94,7 +153,7 @@ const Register = () => {
                 <Link to='/login' className="btn btn-secondary">Login</Link>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Register;
