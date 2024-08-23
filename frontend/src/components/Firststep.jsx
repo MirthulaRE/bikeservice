@@ -15,8 +15,33 @@ const FirstStep = () => {
     const { setUserEmail, setBookingData } = useContext(UserContext);
     const navigate = useNavigate();
 
+    const validateFullName = (name) => /^[A-Za-z\s]+$/.test(name);
+    const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+    const validateMobile = (number) => /^[0-9]{10}$/.test(number);
+    const validateModel = (model) => /^(?:[A-Za-z]+[0-9]*|[A-Za-z0-9]+)$/.test(model);
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        if (!validateFullName(fullname)) {
+            alert("Full Name should only contain letters and spaces.");
+            return;
+        }
+
+        if (!validateEmail(emailid)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        if (!validateMobile(mobile)) {
+            alert("Mobile number should contain exactly 10 digits.");
+            return;
+        }
+
+        if (!validateModel(model)) {
+            alert("Bike Model should contain either only letters or a combination of letters and numbers.");
+            return;
+        }
 
         const bookingDetails = { fullname, emailid, mobile, model, service, bookingDate };
         axios.post('http://localhost:3001/firststep', bookingDetails)
@@ -33,8 +58,8 @@ const FirstStep = () => {
             .catch(err => console.log(err));
     }
 
-
     const today = new Date().toISOString().split('T')[0]; 
+
     return (
         <div className="firststep-container">
             <div className="firststep-form-container">
@@ -119,7 +144,7 @@ const FirstStep = () => {
                             placeholder="Select Date"
                             className="form-control firststep-input"
                             id="exampleInputDate"
-                            min={today}
+                            min={today} 
                             onChange={(event) => setBookingDate(event.target.value)}
                             required
                         />
